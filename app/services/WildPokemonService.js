@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { DetailedPokemon } from "../models/DetailedPokemon.js"
 import { Pokemon } from "../models/Pokemon1.js"
 import { pokeAPI } from "./AxiosService.js"
 
@@ -12,8 +13,15 @@ class WildPokemonService {
         console.log('reassigned response', newPokemon)
     }
 
-}
+    async getPokemonDetails(pokeName) {
+        const response = await pokeAPI.get(`${pokeName}`)
+        console.log('poke response', response.data)
+        const newDetailedPokemon = new DetailedPokemon(response.data)
+        console.log('new detailed pokemon', newDetailedPokemon);
+        AppState.activeDetailedPokemon = newDetailedPokemon
 
+}
+}
 
 
 

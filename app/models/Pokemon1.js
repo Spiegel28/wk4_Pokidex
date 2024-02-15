@@ -8,7 +8,7 @@ export class Pokemon {
 
     get WildPokemonTemplate() {
         return `
-        <button class="m-2 fs-3 btn btn-warning" onclick="app.WildPokemonController.getPokemonDetails('${this.name}')">${this.name}</button>
+        <button class="m-2 fs-3 btn btn-danger" onclick="app.WildPokemonController.getPokemonDetails('${this.name}')">${this.name}</button>
         `
     }
 }
